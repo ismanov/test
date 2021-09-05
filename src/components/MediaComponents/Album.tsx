@@ -21,6 +21,11 @@ const Album: React.FC = ()=> {
             renderItem={renderItem}
             columnWrapperStyle={{justifyContent: 'space-between'}}
             numColumns={4}
+            onEndReached={()=>{
+                if((album?.size ? album.size:0 )> (photos? photos.length:0))    
+                {dispatch({type:sagaActions.GET_LAZY_PHOTO,payload: album?.id})}
+            }}
+            onEndReachedThreshold={.7}
             onRefresh={() => {
                 setRefresh(true)
                 dispatch({type:sagaActions.GET_ALBUM, payload:album, func:()=>{setRefresh(false)}})

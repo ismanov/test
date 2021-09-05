@@ -1,12 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
+
 
 import React , {useEffect} from 'react';
 import {
@@ -24,16 +16,16 @@ import Tab from './src/components/Tab';
 import Content from './src/components/Content';
 import SearchBar from './src/components/SearchBar';
 import Auth from './src/Pages/Auth';
+import { isAndroid } from './src/utils/constants';
 
 const App = () => {
   const {user_id,token ,first_name} = useAppSelector((state:RootState)=>state.profileState)
-  const {albums} = useAppSelector((state:RootState)=>state.mediaState)
-const dispatch = useAppDispatch()
+  const {path} = useAppSelector((state:RootState)=>state.rootState)
+  const dispatch = useAppDispatch()
 
 
 
-
-useEffect(() => {
+  useEffect(() => {
   
   VKLogin.initialize(7942268);
   const backAction = () => {
@@ -61,12 +53,16 @@ useEffect(() => {
   user_id && dispatch({type:sagaActions.GET_ALBUMS})
 }, [user_id,]);
 
+useEffect(() => {
+   if(user_id && path.includes('media')) dispatch({type:sagaActions.GET_ALBUMS})
+}, [path]);
+
 
 if(!token) return <Auth/>
 
   return (
     <SafeAreaView >
-      <StatusBar translucent hidden />
+      <StatusBar translucent hidden={isAndroid} />
       <SearchBar/>
       <Content/>
       <Tab/>

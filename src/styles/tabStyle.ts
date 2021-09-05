@@ -1,11 +1,12 @@
+import { isAndroid } from './../utils/constants';
 import { StyleSheet } from 'react-native';
 import { fullSize, size } from './rootStyle';
-
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 export const tabStyle = StyleSheet.create({
     container: {
         position:'absolute',
-        top:fullSize.height*.07,
+        top:fullSize.height*.07 + (isAndroid? 0:getStatusBarHeight()),
         left:0,
         width: fullSize.width,
         height: fullSize.height*.05,

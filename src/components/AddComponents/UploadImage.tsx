@@ -11,6 +11,7 @@ const UploadImage = ()=>{
     const dispatch = useAppDispatch()
     const upload = ()=>{
         launchImageLibrary({selectionLimit:1, noData:true, mediaType:'photo'}, (res:{assets:uploadPhotoType[]})=>{
+            console.log(res);
             
             if (res.assets && res.assets[0]?.uri) {
                 dispatch(addUploadPhoto(res.assets[0]))

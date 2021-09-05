@@ -12,10 +12,6 @@ target 'TestIK' do
     :hermes_enabled => false
   )
 
-  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
-
-  pod 'react-native-vkontakte-login', :path => '../node_modules/react-native-vkontakte-login'
-
   target 'TestIKTests' do
     inherit! :complete
     # Pods for testing
@@ -29,5 +25,11 @@ target 'TestIK' do
 
   post_install do |installer|
     react_native_post_install(installer)
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
   end
+
+
 end
+

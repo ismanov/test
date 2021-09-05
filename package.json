@@ -10,11 +10,14 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-native-community/cli": "^5.0.1",
     "@reduxjs/toolkit": "^1.6.1",
     "inquirer": "^8.1.2",
     "react": "17.0.2",
     "react-native": "0.65.1",
+    "react-native-eject": "^0.1.2",
     "react-native-image-picker": "^4.0.6",
+    "react-native-status-bar-height": "^2.6.0",
     "react-native-vkontakte-login": "^1.0.1",
     "react-redux": "^7.2.4",
     "redux": "^4.1.1",

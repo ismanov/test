@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Animated, View, StyleSheet, PanResponder, Text, Image, ToastAndroid } from "react-native";
+import { Animated, View, StyleSheet, PanResponder, Text, Image } from "react-native";
 import { setPhoto } from "../../redux/slices/mediaSlice";
 import { addUploadPhotoProgress, changeStatus, removeUploadPhoto, setInContainer, uploadPhotoProgressType, uploadPhotoType } from "../../redux/slices/rootSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";

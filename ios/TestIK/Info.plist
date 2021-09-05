@@ -51,5 +51,28 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	    <string>vk</string>
+	    <string>vk-share</string>
+	    <string>vkauthorize</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+	    <dict>
+	        <key>CFBundleTypeRole</key>
+	        <string>Editor</string>
+	        <key>CFBundleURLName</key>
+	        <string>vk7942268</string>
+	        <key>CFBundleURLSchemes</key>
+	        <array>
+	            <string>vk7942268</string>
+	        </array>
+	    </dict>
+	</array>
+	<key>VK_APP_ID</key>
+	<integer>7942268</integer>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>${PRODUCT_NAME} PhotoLibrary Usage</string>
 </dict>
 </plist>

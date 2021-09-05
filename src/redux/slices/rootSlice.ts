@@ -1,4 +1,4 @@
-import { ToastAndroid } from 'react-native';
+import { toast } from './../../utils/constants';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export type uploadPhotoType = {uri:string; fileName:string;type?:string}
@@ -35,7 +35,7 @@ const rootSlice = createSlice({
             },
             addUploadPhoto: (state, action: PayloadAction<uploadPhotoType>) => {
                 const check = state.uploadPhotos.find(item=>item.uri === action.payload.uri)
-                if(check) ToastAndroid.show('вы уже добавили это фото', 1500)
+                if(check) toast('вы уже добавили это фото')
                 else state.uploadPhotos = [...state.uploadPhotos, action.payload]
             },
             removeUploadPhoto: (state, action: PayloadAction<uploadPhotoType>) => {

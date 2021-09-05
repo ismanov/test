@@ -1,4 +1,4 @@
-import { ToastAndroid } from "react-native";
+import { toast } from './../utils/constants';
 
 const basicUrl = 'https://api.vk.com/method/'
 
@@ -11,11 +11,11 @@ export const getResource = async (method:string,params:object|undefined = undefi
                     resolve(res.json())
                 }
                 else{
-                    ToastAndroid.show(res.status+' code', ToastAndroid.SHORT)
+                    toast(res.status+' code')
                     reject(`error with ${res.status} code`)
                 }
             }).catch((e)=>{
-                ToastAndroid.show('network error', ToastAndroid.SHORT)
+                toast('network error')
                 reject(e)
 
             })
@@ -28,11 +28,11 @@ export const sendResource = async (method:string,body:object ) => {
                     resolve(res.json())
                 }
                 else{
-                    ToastAndroid.show(res.status+' code', ToastAndroid.SHORT)
+                    toast(res.status+' code')
                     reject(`error with ${res.status} code`)
                 }
             }).catch((e)=>{
-                ToastAndroid.show('network error', ToastAndroid.SHORT)
+                toast('network error')
                 reject(e)
 
             })
